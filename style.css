@@ -137,8 +137,28 @@ ul {
     animation: colorChange 2s forwards 8s;
 }
 
-#game h3:after {
+#game h3.tryAgain > a {
+    display: inline-block;
+    font-size: 1rem;
+    position: relative;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.24);
+    border-radius: 30px;
+    padding: 6px 25px;
+    text-decoration: none;
+    transform: translateX(-100%);
+    visibility: hidden;
+    animation: try 4s forwards 8s;
+}
+
+#game h3.score:after {
     content: counter(autoIncre);
+}
+
+#game h4:after {
+    display: inline-block;
+    content: '8s';
+    animation: timeCount 8s forwards 1s;
 }
 
 #game .flexBox {
@@ -166,7 +186,35 @@ ul {
     align-items: center;
     justify-content: center;
     color: #fff;
-    
+
+}
+
+.refresh.icon {
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: calc(100% - 25px);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border-top: solid 1px currentColor;
+    border-bottom: solid 1px currentColor;
+    border-left: solid 1px transparent;
+    border-right: solid 1px currentColor;
+}
+
+.refresh.icon:before {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 10px;
+    width: 3px;
+    height: 3px;
+    border-top: solid 1px currentColor;
+    border-left: solid 1px currentColor;
+    -webkit-transform: rotate(-22.5deg);
+    transform: rotate(-22.5deg);
 }
 
 
@@ -184,16 +232,58 @@ ul {
         transform: translateY(-100%);
     }
     to {
-         transform: translateY(0%);
+        transform: translateY(0%);
     }
-    
+
 }
 @keyframes colorChange {
     from {
         color: #222;
     }
     to {
-         color: #fff;
+        color: #fff;
     }
-    
+
+}
+
+@keyframes timeCount {
+    0% {
+        content: '8s';
+    }
+    12% {
+        content: '7s';
+    }
+    24% {
+        content: '6s';
+    }
+    36% {
+        content: '5s';
+    }
+    48% {
+        content: '4s';
+    }
+    60% {
+        content: '3s';
+    }
+    72% {
+        content: '2s';
+    }
+    84% {
+        content: '1s';
+    }
+    100% {
+        content: '0s';
+    }
+}
+
+@keyframes try {
+    from {
+        transform: translateX(-100%);
+        visibility: hidden;
+    }
+    to {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
 }
