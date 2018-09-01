@@ -25,6 +25,7 @@ ul {
     justify-content: center;
     border: 1px solid #4267B2;
     position: relative;
+    margin-bottom: 4px;
 }
 #game ul li:after {
     content: '';
